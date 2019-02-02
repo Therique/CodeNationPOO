@@ -2,9 +2,9 @@ package br.com.codenation.aceleradev.rec.loja.controller;
 
 public class Controller {
 
-	public boolean login() {
+	public String login(String cpf) {
 		// TODO Auto-generated method stub
-		return false;
+		return "";
 	}
 
 	public void visualizarCategorias() {

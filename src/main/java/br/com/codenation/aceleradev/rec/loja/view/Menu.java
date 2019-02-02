@@ -17,31 +17,32 @@ public class Menu {
 		while (loginSucesso == false) {
 			System.out.println("Informe o seu CPF: ");
 			String cpf = sc.nextLine();
-
-			if (login(cpf) == true) {
+			
+			String nomeUsuario = login(cpf);
+			
+			if (nomeUsuario != null) {
 				loginSucesso = true;
-				System.out.println("Bem-vindo, usuário");
+				System.out.println("Bem-vindo, " + nomeUsuario);
 				home();
 			} else {
 				System.out.println("Desculpe, vamos tentar novamente....");
-				//throw new UsuarioInvalidoException("Usuário informado é inválido.");
 			}
 		}
 
 	}
 
-	private boolean login(String cpf) {
-		return controller.login();
+	private String login(String cpf) {
+		return controller.login(cpf);
 	}
 	
 	private void home() {
 		System.out.println("Escolha uma opção: "
-				+ "\n.1 - Visualizar categorias"
-				+ "\n.2 - Visualizar produtos de uma categoria (informe o código da categoria)"
-				+ "\n.3 - Visualizar um produto (informe o código do produto)"
-				+ "\n.4 - Adicionar produto atual no carrinho de compras"
-				+ "\n.5 - Finalizar compra"
-				+ "\n.X - Adicionar produto atual no carrinho de compras"
+				+ "\n1 - Visualizar categorias"
+				+ "\n2 - Visualizar produtos de uma categoria (informe o código da categoria)"
+				+ "\n3 - Visualizar um produto (informe o código do produto)"
+				+ "\n4 - Adicionar produto atual no carrinho de compras"
+				+ "\n5 - Finalizar compra"
+				+ "\nX - Adicionar produto atual no carrinho de compras"
 				+ "");
 		
 		String opcao = sc.nextLine();
