@@ -37,12 +37,12 @@ public class ProdutoDao<T> implements IDao<Produto> {
     }
 
     @Override
-    public Produto findId(int _id) throws SQLException {
+    public Produto findId(int id) throws SQLException {
         PreparedStatement preparedStatement = null;
         String query = SQL.SELECT_PRODUTO_ID;
 
         ResultSet resultset =  this.connectionFactory.getConnection().createStatement().executeQuery(query);
-        preparedStatement.setInt(1, _id);
+        preparedStatement.setInt(1, id);
 
 
 while (resultset.next()) {

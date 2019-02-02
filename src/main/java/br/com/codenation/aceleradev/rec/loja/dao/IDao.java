@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IDao<T>  {
     
-List<T> findAll() throws SQLException;
+List<T> findAll() throws SQLException, Exception;
 T findId(int _id) throws SQLException;
 T insert(T Tentity);
 T update(T Tentity);
