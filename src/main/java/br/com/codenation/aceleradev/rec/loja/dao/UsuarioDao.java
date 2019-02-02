@@ -18,7 +18,8 @@ public class UsuarioDao<T> implements IDao<Usuario> {
         this.connectionFactory = new ConnectionFactory();
     }
 
-    public boolean Acess() throws  SQLException{
+    public boolean Acess(String _Cpf) throws  SQLException{
+      
         return   this.connectionFactory.getConnection().createStatement().execute(sql.SELECT_USUARIO_CPF);
 
     }
