@@ -13,22 +13,19 @@ import br.com.codenation.aceleradev.rec.loja.util.SQL;
 public class UsuarioDao<T> implements IDao<Usuario> {
 
     private ConnectionFactory connectionFactory;
-    private SQL sql;
 
     public UsuarioDao() {
 
-        sql = new SQL();
         this.connectionFactory = (ConnectionFactory) new ConnectionFactory().getConnection();
     }
 
-    public Usuario Acess(String _Cpf) throws SQLException {
+    public Usuario Acess(String cpf) throws SQLException {
 
         Usuario usuario = null;
         PreparedStatement preparedStatement = null;
 
-        String query = sql.SELECT_USUARIO_CPF;
-        ResultSet resultset = this.connectionFactory.getConnection().createStatement().executeQuery(query);
-        preparedStatement.setString(1, _Cpf);
+        ResultSet resultset = this.connectionFactory.getConnection().createStatement().executeQuery(SQL.SELECT_USUARIO_CPF);
+        preparedStatement.setString(1, cpf);
 
         while (resultset.next()) {
             usuario = new Usuario();

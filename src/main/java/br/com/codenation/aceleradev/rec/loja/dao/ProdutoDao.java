@@ -13,10 +13,8 @@ import br.com.codenation.aceleradev.rec.loja.util.SQL;
 public class ProdutoDao<T> implements IDao<Produto> {
 
     private ConnectionFactory connectionFactory;
-    private SQL sql;
 
     public ProdutoDao() {
-        sql = new SQL();
         this.connectionFactory = (ConnectionFactory) new ConnectionFactory().getConnection();
     }
 
@@ -41,7 +39,7 @@ public class ProdutoDao<T> implements IDao<Produto> {
     @Override
     public Produto findId(int _id) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String query = sql.SELECT_PRODUTO_ID;
+        String query = SQL.SELECT_PRODUTO_ID;
 
         ResultSet resultset =  this.connectionFactory.getConnection().createStatement().executeQuery(query);
         preparedStatement.setInt(1, _id);
